@@ -1,4 +1,10 @@
 import requests
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+token = os.getenv("token_api")
 
 def consultar_empresa():
 
@@ -6,10 +12,9 @@ def consultar_empresa():
 
     url = f"https://brapi.dev/api/quote/{valor}"
     response = requests.request("GET", url, headers = {
-    "Authorization": "pr66QBYroQwx2FWuEGKGmM"
-    })
+    "Authorization": token})
 
-    
+
     print(response.text)
 
 consultar_empresa()
